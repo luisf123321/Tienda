@@ -20,7 +20,7 @@ import models.Producto;
 public interface IDaoProducto {
     
     public List<Producto> getProductos();
-    public String createProducto(Producto producto) throws RollbackFailureException, Exception;
+    public Producto createProducto(Producto producto) throws RollbackFailureException, Exception;
     public Producto getProducto(Integer id);
     public String deleteProducto(Integer id) throws NonexistentEntityException, RollbackFailureException, Exception;
     public Producto updateProducto(Producto producto) throws NonexistentEntityException, RollbackFailureException, Exception;

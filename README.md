@@ -1,5 +1,8 @@
 # Tienda  
 
+JEE 7, JDK 8, GLASSFISH 4.0
+
+
 # GRUPO 1
 
 html

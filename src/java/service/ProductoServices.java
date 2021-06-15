@@ -53,7 +53,7 @@ public class ProductoServices {
     @POST
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public String createProducto(Producto producto) throws Exception{
+    public Producto createProducto(Producto producto) throws Exception{
         ProductoController pp = new ProductoController(utx,Persistence.createEntityManagerFactory("TiendaPU"));
         return  pp.createProducto(producto);
     }

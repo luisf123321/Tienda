@@ -76,7 +76,7 @@ public class ClienteServices {
     }
     
     @PUT
-    @Path("{id}")
+    @Path("/update")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Cliente updateCliente(Cliente cliente) throws RollbackFailureException, Exception{

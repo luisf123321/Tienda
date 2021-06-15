@@ -73,7 +73,7 @@ public class ProductoController implements IDaoProducto {
     
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     @Override
-    public String createProducto(Producto producto) throws RollbackFailureException, Exception {
+    public Producto createProducto(Producto producto) throws RollbackFailureException, Exception {
         EntityManager em = null;
         String message = "";
         try {
@@ -105,7 +105,7 @@ public class ProductoController implements IDaoProducto {
                 em.close();
             }
         }
-        return message;
+        return producto;
     }
     @Override
     public Producto getProducto(Integer id) {
