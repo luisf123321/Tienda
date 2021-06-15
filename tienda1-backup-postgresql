@@ -1,0 +1,292 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.7 (Ubuntu 12.7-0ubuntu0.20.04.1)
+-- Dumped by pg_dump version 12.7 (Ubuntu 12.7-0ubuntu0.20.04.1)
+
+-- Started on 2021-06-15 15:31:36 -05
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 205 (class 1259 OID 16516)
+-- Name: categoria; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.categoria (
+    id integer NOT NULL,
+    nombre character varying NOT NULL,
+    descripcion character varying NOT NULL
+);
+
+
+ALTER TABLE public.categoria OWNER TO postgres;
+
+--
+-- TOC entry 204 (class 1259 OID 16514)
+-- Name: Categoria_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public."Categoria_id_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."Categoria_id_seq" OWNER TO postgres;
+
+--
+-- TOC entry 3034 (class 0 OID 0)
+-- Dependencies: 204
+-- Name: Categoria_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public."Categoria_id_seq" OWNED BY public.categoria.id;
+
+
+--
+-- TOC entry 207 (class 1259 OID 16532)
+-- Name: cliente; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cliente (
+    id integer NOT NULL,
+    nombre character varying NOT NULL,
+    apellido character varying NOT NULL,
+    tipodocumento character varying NOT NULL,
+    numdocumento bigint NOT NULL,
+    telefono bigint NOT NULL,
+    direccion character varying NOT NULL
+);
+
+
+ALTER TABLE public.cliente OWNER TO postgres;
+
+--
+-- TOC entry 206 (class 1259 OID 16530)
+-- Name: Cliente_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public."Cliente_id_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."Cliente_id_seq" OWNER TO postgres;
+
+--
+-- TOC entry 3035 (class 0 OID 0)
+-- Dependencies: 206
+-- Name: Cliente_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public."Cliente_id_seq" OWNED BY public.cliente.id;
+
+
+--
+-- TOC entry 203 (class 1259 OID 16505)
+-- Name: producto; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.producto (
+    id integer NOT NULL,
+    nombre character varying NOT NULL,
+    descripcion character varying NOT NULL,
+    codigo character varying NOT NULL,
+    ref character varying NOT NULL,
+    precio double precision NOT NULL,
+    idcategoria integer NOT NULL
+);
+
+
+ALTER TABLE public.producto OWNER TO postgres;
+
+--
+-- TOC entry 202 (class 1259 OID 16503)
+-- Name: Producto_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public."Producto_id_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."Producto_id_seq" OWNER TO postgres;
+
+--
+-- TOC entry 3036 (class 0 OID 0)
+-- Dependencies: 202
+-- Name: Producto_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public."Producto_id_seq" OWNED BY public.producto.id;
+
+
+--
+-- TOC entry 2888 (class 2604 OID 16519)
+-- Name: categoria id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.categoria ALTER COLUMN id SET DEFAULT nextval('public."Categoria_id_seq"'::regclass);
+
+
+--
+-- TOC entry 2889 (class 2604 OID 16535)
+-- Name: cliente id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cliente ALTER COLUMN id SET DEFAULT nextval('public."Cliente_id_seq"'::regclass);
+
+
+--
+-- TOC entry 2887 (class 2604 OID 16508)
+-- Name: producto id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.producto ALTER COLUMN id SET DEFAULT nextval('public."Producto_id_seq"'::regclass);
+
+
+--
+-- TOC entry 3026 (class 0 OID 16516)
+-- Dependencies: 205
+-- Data for Name: categoria; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.categoria (id, nombre, descripcion) FROM stdin;
+1	Smarthphone	Huawei 
+2	Lapto	Portatiles
+\.
+
+
+--
+-- TOC entry 3028 (class 0 OID 16532)
+-- Dependencies: 207
+-- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.cliente (id, nombre, apellido, tipodocumento, numdocumento, telefono, direccion) FROM stdin;
+4	juan andres	borrero ipuz	cc	11085	321226	cl 34 dd
+5	juan andres	borrero ipuz	cc	11085	321226	cl 34 dd
+6	juan andres	borrero ipuz	cc	11085	321226	cl 34 dd
+7	juan andres	borrero ipuz	cc	11085	321226	cl 34 dd
+2	juan	borrero	ti	11085	321226	cl 34 dd
+3	juan	borrero	cc	1108532	321226	cl 34 dd
+\.
+
+
+--
+-- TOC entry 3024 (class 0 OID 16505)
+-- Dependencies: 203
+-- Data for Name: producto; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.producto (id, nombre, descripcion, codigo, ref, precio, idcategoria) FROM stdin;
+11	samsung S20	S20	sam22	sam22d	2000000	1
+12	samsung S20	S20	sam22	sam22d	2000000	1
+5	samsung3 -dddss- S20	S20	sam252	sam22d6	500000	1
+13	luis	22	22	22	22	1
+14	luis	22	22	22	22	1
+1	huawei p20	ram 4	cel22	cel22	5000000	1
+23	leidy	44	44	44	44	1
+24	leidy	4	4	5	4	1
+9	samsung S20	S20	sam22	sam22d	1000000	1
+25	gg	gg	gg	gg	44	1
+26	fd	22	fd	44	4321	1
+10	samsung S20	S20	sam22	sam22d	2300000	1
+\.
+
+
+--
+-- TOC entry 3037 (class 0 OID 0)
+-- Dependencies: 204
+-- Name: Categoria_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Categoria_id_seq"', 9, true);
+
+
+--
+-- TOC entry 3038 (class 0 OID 0)
+-- Dependencies: 206
+-- Name: Cliente_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Cliente_id_seq"', 12, true);
+
+
+--
+-- TOC entry 3039 (class 0 OID 0)
+-- Dependencies: 202
+-- Name: Producto_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Producto_id_seq"', 26, true);
+
+
+--
+-- TOC entry 2893 (class 2606 OID 16524)
+-- Name: categoria Categoria_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.categoria
+    ADD CONSTRAINT "Categoria_pkey" PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2895 (class 2606 OID 16540)
+-- Name: cliente Cliente_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cliente
+    ADD CONSTRAINT "Cliente_pkey" PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2891 (class 2606 OID 16513)
+-- Name: producto Producto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.producto
+    ADD CONSTRAINT "Producto_pkey" PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2896 (class 2606 OID 16525)
+-- Name: producto categoria_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.producto
+    ADD CONSTRAINT categoria_fk FOREIGN KEY (idcategoria) REFERENCES public.categoria(id) ON UPDATE CASCADE ON DELETE CASCADE NOT VALID;
+
+
+-- Completed on 2021-06-15 15:31:36 -05
+
+--
+-- PostgreSQL database dump complete
+--
+
