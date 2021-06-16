@@ -5,6 +5,7 @@
     <class>models.Producto</class>
     <class>models.Cliente</class>
     <class>models.Categoria</class>
+    <class>models.Detalle</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>

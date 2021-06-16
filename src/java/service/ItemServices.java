@@ -44,6 +44,15 @@ public class ItemServices {
         return Response.status(201).entity(result).build();
     }
     
+    @GET
+    @Path("cancelar")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Response cancelar(@Context HttpServletRequest request){
+        ItemController itemcontroller = new ItemController();
+        itemcontroller.cancel(request); 
+   
+        return Response.status(201).entity("ok").build();
+    }
     
     
 }

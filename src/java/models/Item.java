@@ -10,7 +10,7 @@ package models;
  * @author luis
  */
 public class Item {
-
+    
     private int idproducto;
     private int cantidad;
 
@@ -30,5 +30,5 @@ public class Item {
         this.cantidad = cantidad;
     }
     
-
+    
 }

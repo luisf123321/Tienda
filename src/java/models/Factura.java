@@ -20,7 +20,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -39,8 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Factura.findAll", query = "SELECT f FROM Factura f"),
     @NamedQuery(name = "Factura.findById", query = "SELECT f FROM Factura f WHERE f.id = :id"),
     @NamedQuery(name = "Factura.findByFecha", query = "SELECT f FROM Factura f WHERE f.fecha = :fecha"),
-    @NamedQuery(name = "Factura.findByTotal", query = "SELECT f FROM Factura f WHERE f.total = :total"),
-    @NamedQuery(name = "Factura.findByIdpago", query = "SELECT f FROM Factura f WHERE f.idpago = :idpago")})
+    @NamedQuery(name = "Factura.findByTotal", query = "SELECT f FROM Factura f WHERE f.total = :total")})
 public class Factura implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,25 +50,21 @@ public class Factura implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "fecha")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)    
     private Date fecha;
     @Basic(optional = false)
     @NotNull
     @Column(name = "total")
     private double total;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "idpago")
-    private int idpago;
     @JoinColumn(name = "idcliente", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Cliente idcliente;
     @JoinColumn(name = "idempleado", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Empleado idempleado;
-    @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
-    @OneToOne(optional = false)
-    private Modopago modopago;
+    @JoinColumn(name = "idpago", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Modopago idpago;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idfactura")
     private List<Detallefactura> detallefacturaList;
 
@@ -81,11 +75,10 @@ public class Factura implements Serializable {
         this.id = id;
     }
 
-    public Factura(Integer id, Date fecha, double total, int idpago) {
+    public Factura(Integer id, Date fecha, double total) {
         this.id = id;
         this.fecha = fecha;
         this.total = total;
-        this.idpago = idpago;
     }
 
     public Integer getId() {
@@ -112,14 +105,6 @@ public class Factura implements Serializable {
         this.total = total;
     }
 
-    public int getIdpago() {
-        return idpago;
-    }
-
-    public void setIdpago(int idpago) {
-        this.idpago = idpago;
-    }
-
     public Cliente getIdcliente() {
         return idcliente;
     }
@@ -136,12 +121,12 @@ public class Factura implements Serializable {
         this.idempleado = idempleado;
     }
 
-    public Modopago getModopago() {
-        return modopago;
+    public Modopago getIdpago() {
+        return idpago;
     }
 
-    public void setModopago(Modopago modopago) {
-        this.modopago = modopago;
+    public void setIdpago(Modopago idpago) {
+        this.idpago = idpago;
     }
 
     @XmlTransient

@@ -54,3 +54,19 @@ function getProductoIdCart(id,cantidad){
     });
     
 }
+
+function getCancelCompra(){
+    $.ajax({
+            url: 'http://localhost:8080/Tienda/webresources/item/cancelar',
+            type: 'get',
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (data) {            	
+            	location.reload();
+            },
+            failure: function(errMsg) {
+                alert(errMsg);
+            }
+        });  
+    
+}

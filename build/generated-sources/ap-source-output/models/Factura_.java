@@ -10,17 +10,16 @@ import models.Detallefactura;
 import models.Empleado;
 import models.Modopago;
 
-@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2021-06-15T19:28:46")
+@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2021-06-16T00:30:40")
 @StaticMetamodel(Factura.class)
 public class Factura_ { 
 
     public static volatile SingularAttribute<Factura, Date> fecha;
     public static volatile SingularAttribute<Factura, Double> total;
-    public static volatile SingularAttribute<Factura, Integer> idpago;
+    public static volatile SingularAttribute<Factura, Modopago> idpago;
     public static volatile ListAttribute<Factura, Detallefactura> detallefacturaList;
     public static volatile SingularAttribute<Factura, Integer> id;
     public static volatile SingularAttribute<Factura, Cliente> idcliente;
     public static volatile SingularAttribute<Factura, Empleado> idempleado;
-    public static volatile SingularAttribute<Factura, Modopago> modopago;
 
 }

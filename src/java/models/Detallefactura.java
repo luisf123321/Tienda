@@ -46,7 +46,7 @@ public class Detallefactura implements Serializable {
     private int iddetalle;
     @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
     @OneToOne(optional = false)
-    private Detalle detalle;
+    private Detallescompra detallescompra;
     @JoinColumn(name = "idfactura", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Factura idfactura;
@@ -79,12 +79,12 @@ public class Detallefactura implements Serializable {
         this.iddetalle = iddetalle;
     }
 
-    public Detalle getDetalle() {
-        return detalle;
+    public Detallescompra getDetallescompra() {
+        return detallescompra;
     }
 
-    public void setDetalle(Detalle detalle) {
-        this.detalle = detalle;
+    public void setDetallescompra(Detallescompra detallescompra) {
+        this.detallescompra = detallescompra;
     }
 
     public Factura getIdfactura() {

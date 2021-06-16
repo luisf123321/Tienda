@@ -11,6 +11,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -34,13 +36,13 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Empleado.findByNombre", query = "SELECT e FROM Empleado e WHERE e.nombre = :nombre"),
     @NamedQuery(name = "Empleado.findByApellido", query = "SELECT e FROM Empleado e WHERE e.apellido = :apellido"),
     @NamedQuery(name = "Empleado.findByNumdocumento", query = "SELECT e FROM Empleado e WHERE e.numdocumento = :numdocumento"),
-    @NamedQuery(name = "Empleado.findByUser", query = "SELECT e FROM Empleado e WHERE e.user = :user")})
+    @NamedQuery(name = "Empleado.findByUsuario", query = "SELECT e FROM Empleado e WHERE e.usuario = :usuario")})
 public class Empleado implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
@@ -60,8 +62,8 @@ public class Empleado implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2147483647)
-    @Column(name = "user")
-    private String user;
+    @Column(name = "usuario")
+    private String usuario;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idempleado")
     private List<Factura> facturaList;
 
@@ -72,12 +74,12 @@ public class Empleado implements Serializable {
         this.id = id;
     }
 
-    public Empleado(Integer id, String nombre, String apellido, long numdocumento, String user) {
+    public Empleado(Integer id, String nombre, String apellido, long numdocumento, String usuario) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.numdocumento = numdocumento;
-        this.user = user;
+        this.usuario = usuario;
     }
 
     public Integer getId() {
@@ -112,12 +114,12 @@ public class Empleado implements Serializable {
         this.numdocumento = numdocumento;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     @XmlTransient

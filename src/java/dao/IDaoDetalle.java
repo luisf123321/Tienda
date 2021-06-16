@@ -8,7 +8,8 @@ package dao;
 import controller.exceptions.NonexistentEntityException;
 import controller.exceptions.RollbackFailureException;
 import java.util.List;
-import models.Detalle;
+import models.Detallescompra;
+
 
 /**
  *
@@ -16,11 +17,11 @@ import models.Detalle;
  */
 public interface IDaoDetalle {
     
-    public List<Detalle> getDetalles();
-    public Detalle createDetalle(Detalle Detalle) throws RollbackFailureException, Exception;
-    public Detalle getDetalle(int id);
+    public List<Detallescompra> getDetalles();
+    public Detallescompra createDetalle(Detallescompra Detalle) throws RollbackFailureException, Exception;
+    public Detallescompra getDetalle(int id);
     public String deleteDetalle(int id) throws NonexistentEntityException, RollbackFailureException, Exception;
-    public Detalle updateDetalle() throws NonexistentEntityException, RollbackFailureException, Exception;
+    public Detallescompra updateDetalle() throws NonexistentEntityException, RollbackFailureException, Exception;
  
     
 }

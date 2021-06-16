@@ -45,7 +45,7 @@
                 </div>
                 <div class="mt-3 mb-5">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Confirmar Compra</button>                        
-                    <button type="button" id="eliminar" class="btn btn-danger">Cancelar Cancelar</button>                       
+                    <button type="button" onclick="getCancelCompra();location.reload();" id="eliminar" class="btn btn-danger">Cancelar Cancelar</button>                       
                 </div> 
             </div>                  
         </div>      

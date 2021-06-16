@@ -41,9 +41,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Cliente.findByDireccion", query = "SELECT c FROM Cliente c WHERE c.direccion = :direccion")})
 public class Cliente implements Serializable {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idcliente")
-    private List<Factura> facturaList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -78,6 +75,8 @@ public class Cliente implements Serializable {
     @Size(min = 1, max = 2147483647)
     @Column(name = "direccion")
     private String direccion;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idcliente")
+    private List<Factura> facturaList;
 
     public Cliente() {
     }
@@ -152,6 +151,15 @@ public class Cliente implements Serializable {
         this.direccion = direccion;
     }
 
+    @XmlTransient
+    public List<Factura> getFacturaList() {
+        return facturaList;
+    }
+
+    public void setFacturaList(List<Factura> facturaList) {
+        this.facturaList = facturaList;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -175,15 +183,6 @@ public class Cliente implements Serializable {
     @Override
     public String toString() {
         return "models.Cliente[ id=" + id + " ]";
-    }
-
-    @XmlTransient
-    public List<Factura> getFacturaList() {
-        return facturaList;
-    }
-
-    public void setFacturaList(List<Factura> facturaList) {
-        this.facturaList = facturaList;
     }
     
 }
