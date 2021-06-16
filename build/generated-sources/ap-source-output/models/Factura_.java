@@ -10,7 +10,7 @@ import models.Detallefactura;
 import models.Empleado;
 import models.Modopago;
 
-@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2021-06-16T00:30:40")
+@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2021-06-16T10:11:47")
 @StaticMetamodel(Factura.class)
 public class Factura_ { 
 

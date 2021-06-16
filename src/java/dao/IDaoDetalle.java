@@ -18,10 +18,10 @@ import models.Detallescompra;
 public interface IDaoDetalle {
     
     public List<Detallescompra> getDetalles();
-    public Detallescompra createDetalle(Detallescompra Detalle) throws RollbackFailureException, Exception;
+    public Detallescompra createDetalle(Detallescompra detalle) throws RollbackFailureException, Exception;
     public Detallescompra getDetalle(int id);
     public String deleteDetalle(int id) throws NonexistentEntityException, RollbackFailureException, Exception;
-    public Detallescompra updateDetalle() throws NonexistentEntityException, RollbackFailureException, Exception;
+    public Detallescompra updateDetalle(Detallescompra detaller) throws NonexistentEntityException, RollbackFailureException, Exception;
  
     
 }
