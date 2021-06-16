@@ -137,11 +137,13 @@
         <script src="../Ecommercejs/clientelist.js"></script>
         <script src="../Ecommercejs/BuscarCliente.js"></script>
         <script src="../Ecommercejs/guardarCliente.js"></script>
+        <script src="../Ecommercejs/item/itemAdd.js"></script>
         <script src="../jquery/jquery-3.6.0.js"></script>
         <script>
 	  	$(document).ready(function(){  		
 			getClienteList();
                         getClienteCount();
+                        getitem();
                         
 		});
                 $("#eliminar").click(function(){

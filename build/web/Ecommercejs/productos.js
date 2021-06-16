@@ -25,7 +25,7 @@ function getProductos(){
     		dp += '<h5>$' + pricing.toFixed(2) + '</h5>';
     		dp += '<p class="card-text">' + short_description + '</p>';
     		//dp += '<button type="button" class="btn btn-primary btn-sm">Buy</button>';
-    		dp += '<a href="javascript:addToCart(' + id + ');" class="btn btn-info" role="button">Buy</a>';
+    		dp += '<a href="javascript:itemAdd(' + id + ');" class="btn btn-info" role="button">Buy</a>';
     		dp += '</div>';
     		dp += '<div class="card-footer">';
     		dp += '<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>';

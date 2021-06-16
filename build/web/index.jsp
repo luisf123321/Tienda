@@ -25,6 +25,9 @@
               <a type="button" href='producto/productos.jsp' class="btn btn-primary">Productos</a>
               <a type="button" href="categorias/categoria.jsp" class="btn btn-secondary">Categorias</a>
               <a type="button" href='cliente/cliente.jsp' class="btn btn-success">Clientes</a>
+              <a type="button" href="#" class="btn btn-secondary">Cart 
+                <span id="items" class="badge badge-light"></span>
+              </a>
             </div>
         </nav>
         
@@ -52,6 +55,11 @@
                   <!-- /.row -->
 
                 </div>
+                <div>
+                    <h1 >item select</h1>
+                    <h1 id="items"></h1>
+                </div>
+                
                 <!-- /.col-lg-9 -->
 
               </div>
@@ -62,12 +70,14 @@
         
         <script src="Ecommercejs/categorias.js.js"></script>
         <script src="Ecommercejs/productos.js"></script>
+        <script src="Ecommercejs/item/itemAdd.js"></script>
         <script src="jquery/jquery-3.6.0.js"></script>
         <script>
 	  	$(document).ready(function(){
 	  		var category_id = <%= category_id %>;
 			getCategories(category_id);
 			getProductos(category_id);
+                        getitem();
 		});
          </script>
     </body>

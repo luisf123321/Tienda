@@ -101,13 +101,14 @@
           </div>
         <script src="../Ecommercejs/categorialist.js"></script>
         <script src="../Ecommercejs/guardarCategoria.js"></script>
+        <script src="../Ecommercejs/item/itemAdd.js"></script>
         <script src="../Ecommercejs/BuscarCategoria.js"></script>
         <script src="../jquery/jquery-3.6.0.js"></script>
         <script>
 	  	$(document).ready(function(){  		
 			getCategoriasList();                  
                         getCategoriaCount();
-                        console.log(document.getElementById("idCategoria").value)
+                        getitem();
 		});
                 $("#buscar").click(function(){
                     if(document.getElementById("idCategoria").value !== undefined){
